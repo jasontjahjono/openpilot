@@ -432,9 +432,9 @@ void AnnotatedCameraWidget::drawHud(QPainter &p) {
 
   // current speed
   configFont(p, "Inter", 176, "Bold");
-  drawText(p, rect().center().x(), 210, speedStr);
+  drawText(p, rect().center().x(), 210, speedStr); // change this
   configFont(p, "Inter", 66, "Regular");
-  drawText(p, rect().center().x(), 290, speedUnit, 200);
+  drawText(p, rect().center().x(), 290, speedUnit, 200); // change this
 
   p.restore();
 }
