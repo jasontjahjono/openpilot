@@ -432,9 +432,9 @@ void AnnotatedCameraWidget::drawHud(QPainter &p) {
 
   // current speed
   configFont(p, "Inter", 176, "Bold");
-  drawText(p, rect().center().x(), 210, speedStr); // change this
+  drawColorText(p, rect().center().x(), 210, speedStr);
   configFont(p, "Inter", 66, "Regular");
-  drawText(p, rect().center().x(), 290, speedUnit, 200); // change this
+  drawColorText(p, rect().center().x(), 290, speedUnit, 200);
 
   p.restore();
 }
@@ -448,6 +448,14 @@ void AnnotatedCameraWidget::drawText(QPainter &p, int x, int y, const QString &t
   real_rect.moveCenter({x, y - real_rect.height() / 2});
 
   p.setPen(QColor(0xff, 0xff, 0xff, alpha));
+  p.drawText(real_rect.x(), real_rect.bottom(), text);
+}
+
+void AnnotatedCameraWidget::drawColorText(QPainter &p, int x, int y, const QString &text, int alpha) {
+  QRect real_rect = getTextRect(p, 0, text);
+  real_rect.moveCenter({x, y - real_rect.height() / 2});
+
+  p.setPen(QColor(0x80, 0x80, 0xff, alpha));
   p.drawText(real_rect.x(), real_rect.bottom(), text);
 }
 
